@@ -8,7 +8,7 @@ const { getTopics, getTopicById } = require('./dynamo');
 const app = express();
 
 //RETURN ALL CONVERSATIONS
-app.get('/', async (req, res)=>{
+app.get('/api/conversations', async (req, res)=>{
     try {
         const topics = await getTopics();
         res.json(topics)
@@ -20,7 +20,7 @@ app.get('/', async (req, res)=>{
 });
 
 //RETURN ONE CONVERSATION
-app.get('/:id', async (req, res)=>{
+app.get('/api/conversations/:id', async (req, res)=>{
     const id = req.params.id.toString(); //the id in the database is of type string
     try {
         const topic = await getTopicById(id);
