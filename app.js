@@ -6,6 +6,10 @@
 const express = require('express');
 const { getTopics, getTopicById } = require('./dynamo');
 const app = express();
+const cors = require('cors');
+
+//CROSS-ORIGIN RESOURCE SHARING 
+app.use(cors());
 
 //RETURN ALL CONVERSATIONS
 app.get('/api/conversations', async (req, res)=>{
